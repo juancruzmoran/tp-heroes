@@ -3,6 +3,16 @@ const path = require('path');
 const app = express();
 const port = 3030;
 
-/* nuestro servidor  */
-
+//recurso estaticos
+app.use(express.static('public'));
+//rutas
+app.get('/', (req,res) => res.sendFile(path.join(__dirname,'views','index.html')))
+app.get('/babbage', (req,res) => res.sendFile(path.join(__dirname,'views','babbage.html')))
+app.get('/berrnels-lee', (req,res) => res.sendFile(path.join(__dirname,'views','berrnels-lee.html')))
+app.get('/clarke', (req,res) => res.sendFile(path.join(__dirname,'views','clarke.html')))
+app.get('/hamilton', (req,res) => res.sendFile(path.join(__dirname,'views','hamilton.html')))
+app.get('/hopper', (req,res) => res.sendFile(path.join(__dirname,'views','hopper.html')))
+app.get('/lovelace', (req,res) => res.sendFile(path.join(__dirname,'views','lovelace.html')))
+app.get('/turing', (req,res) => res.sendFile(path.join(__dirname,'views','turing.html')))
+//servidorAA
 app.listen(port, () => console.log('Server running in http://localhost:' + port));
